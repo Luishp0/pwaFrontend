@@ -1,112 +1,125 @@
 import React from "react";
-import {Link, useNavigate} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { insertar } from "..";
+import { FaUser, FaUserTag, FaEnvelope, FaLock } from "react-icons/fa"; // Importa los íconos necesarios
+
 export default function Register() {
-
-    const navigate = useNavigate();
-
-    /*const handleRedirect = () => {
-        navigate('/home');
-    };*/
-
     return (
-        <>
-            <div className="flex min-h-screen flex-1 flex-col items-center justify-center px-6 py-12 lg:px-8 bg-primary">
-                <div className="bg-white p-10 sm:mx-auto sm:w-full sm:max-w-sm rounded-xl">
-                    <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                        <h2 className=" text-center text-2xl font-semibold text-gray-900">
-                            Crea tu cuenta
-                        </h2>
-                    </div>
-                    <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                        <form className="space-y-6" onSubmit={(event) => insertar(event)}>
-                            <div>
-                                <label htmlFor="name" className="block font-medium leading-6 text-gray-900">
-                                    Nombre(s)
-                                </label>
-                                <div className="mt-2">
-                                    <input
-                                        required={true}
-                                        id="name"
-                                        name="name"
-                                        type="text"
-                                        className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                    />
-                                </div>
-                            </div>
-
-                            <div>
-                                <label htmlFor="lastname" className="block font-medium leading-6 text-gray-900">
-                                    Apellido(s)
-                                </label>
-                                <div className="mt-2">
-                                    <input
-                                        required={true}
-                                        id="lastname"
-                                        name="lastname"
-                                        type="text"
-                                        className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                    />
-                                </div>
-                            </div>
-
-                            <div>
-                                <label htmlFor="email" className="block font-medium leading-6 text-gray-900">
-                                    Correo electrónico
-                                </label>
-                                <div className="mt-2">
-                                    <input
-                                        required={true}
-                                        id="email"
-                                        name="email"
-                                        type="email"
-                                        autoComplete="email"
-                                        className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                    />
-                                </div>
-                            </div>
-
-                            <div>
-                                <div className="flex items-center justify-between">
-                                    <label htmlFor="password"
-                                           className="block font-medium leading-6 text-gray-900">
-                                        Contraseña
-                                    </label>
-                                </div>
-                                <div className="mt-2">
-                                    <input
-                                        required={true}
-                                        id="password"
-                                        name="password"
-                                        type="password"
-                                        autoComplete="current-password"
-                                        className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                    />
-                                </div>
-                            </div>
-
-                            <div>
-                                <button
-                                    //onClick={handleRedirect}
-                                    type="submit"
-                                    className="flex w-full mt-10 justify-center rounded-md bg-secondary border-2 border-secondary px-3 py-2 text-md font-semibold leading-6 text-white shadow-sm hover:bg-white hover:text-dark_complementary hover:border-2 hover:border-secondary transition duration-500 ease-in-out"
-                                >
-                                    Crear cuenta
-                                </button>
-                            </div>
-                        </form>
-
-                        <div className="text-center">
-                            <p className="mt-10 font-semibold text-md text-gray-500">
-                                ¿Ya tienes una cuenta?
-                            </p>
-                            <Link to="/login" className="font-semibold leading-6 text-secondary hover:text-complementary">
-                                Inicia sesión aquí
-                            </Link>
+        <div className="flex min-h-screen items-center justify-center bg-blue-100 px-6 py-12">
+            <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+                <div className="text-center">
+                    <h2 className="text-3xl font-bold text-gray-800">Crear Cuenta</h2>
+                    
+                </div>
+                <form className="mt-6 space-y-5" onSubmit={(event) => insertar(event)}>
+                    {/* Input Nombre(s) */}
+                    <div>
+                        <label
+                            htmlFor="name"
+                            className="block text-sm font-medium text-gray-700"
+                        >
+                            Nombre(s)
+                        </label>
+                        <div className="relative mt-2">
+                            <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                <FaUser />
+                            </span>
+                            <input
+                                required
+                                id="name"
+                                name="name"
+                                type="text"
+                                className="w-full pl-10 px-4 py-2 text-gray-900 border rounded-md shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                            />
                         </div>
                     </div>
-                </div>
+
+                    {/* Input Apellido(s) */}
+                    <div>
+                        <label
+                            htmlFor="lastname"
+                            className="block text-sm font-medium text-gray-700"
+                        >
+                            Apellido(s)
+                        </label>
+                        <div className="relative mt-2">
+                            <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                <FaUserTag />
+                            </span>
+                            <input
+                                required
+                                id="lastname"
+                                name="lastname"
+                                type="text"
+                                className="w-full pl-10 px-4 py-2 text-gray-900 border rounded-md shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Input Correo electrónico */}
+                    <div>
+                        <label
+                            htmlFor="email"
+                            className="block text-sm font-medium text-gray-700"
+                        >
+                            Correo electrónico
+                        </label>
+                        <div className="relative mt-2">
+                            <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                <FaEnvelope />
+                            </span>
+                            <input
+                                required
+                                id="email"
+                                name="email"
+                                type="email"
+                                autoComplete="email"
+                                className="w-full pl-10 px-4 py-2 text-gray-900 border rounded-md shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Input Contraseña */}
+                    <div>
+                        <label
+                            htmlFor="password"
+                            className="block text-sm font-medium text-gray-700"
+                        >
+                            Contraseña
+                        </label>
+                        <div className="relative mt-2">
+                            <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                <FaLock />
+                            </span>
+                            <input
+                                required
+                                id="password"
+                                name="password"
+                                type="password"
+                                autoComplete="current-password"
+                                className="w-full pl-10 px-4 py-2 text-gray-900 border rounded-md shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Botón */}
+                    <button
+                        type="submit"
+                        className="w-full py-3 mt-4 text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-400 focus:ring-offset-1 transition duration-300"
+                    >
+                        Crear cuenta
+                    </button>
+                </form>
+                <p className="mt-6 text-sm text-center text-gray-600">
+                    ¿Ya tienes una cuenta?{" "}
+                    <Link
+                        to="/login"
+                        className="text-indigo-500 hover:text-indigo-700 font-semibold"
+                    >
+                        Inicia sesión
+                    </Link>
+                </p>
             </div>
-        </>
-    )
+        </div>
+    );
 }

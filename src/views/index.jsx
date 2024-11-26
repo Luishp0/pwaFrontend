@@ -10,39 +10,50 @@ export default function Index() {
     return (
         <>
             <nav className="sticky top-0 w-full bg-white shadow-sm z-50">
-                <div className="container mx-auto flex items-center justify-between p-4 lg:p-0">
+            <div className="container mx-auto flex items-center justify-between p-4 lg:p-0">
                     {/* Logo */}
                     <div className="flex items-center">
-                        <img className="w-[50px] h-[50px] sm:w-[75px] sm:h-[75px]" src="/Symphony.png"
-                             alt="Symphony Logo"/>
+                        <img
+                            className="w-14 h-14 sm:w-20 sm:h-20"
+                            src="/Symphony.png"
+                            alt="Symphony Logo"
+                        />
                     </div>
 
                     {/* Menu icon for mobile */}
                     <div className="lg:hidden">
                         <button onClick={() => setIsOpen(!isOpen)}>
-                            {isOpen ? <IoClose className="w-8 h-8"/> : <IoMenu className="w-8 h-8"/>}
+                            {isOpen ? (
+                                <IoClose className="w-8 h-8" />
+                            ) : (
+                                <IoMenu className="w-8 h-8" />
+                            )}
                         </button>
                     </div>
 
                     {/* Links and search bar for larger screens */}
                     <div className="hidden lg:flex items-center space-x-5">
-                        <ScrollLink to="home" spy={true} smooth={true} offset={-70} duration={500}
-                                    className="font-medium text-lg sm:text-xl hover:text-secondary transition duration-300 ease-in-out">
+                        <ScrollLink
+                            to="home"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}
+                            className="font-medium text-lg sm:text-xl hover:text-secondary transition duration-300 ease-in-out"
+                        >
                             Inicio
                         </ScrollLink>
-                        <ScrollLink to="about-us" spy={true} smooth={true} offset={-70} duration={500}
-                                    className="font-medium text-lg sm:text-xl hover:text-secondary transition duration-300 ease-in-out">
+                        <ScrollLink
+                            to="about-us"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}
+                            className="font-medium text-lg sm:text-xl hover:text-secondary transition duration-300 ease-in-out"
+                        >
                             Nosotros
                         </ScrollLink>
-                        <div className="relative flex items-center text-gray-500">
-                            <IoSearch className="absolute ml-3 w-5 h-5"/>
-                            <input
-                                type="text"
-                                name="search"
-                                placeholder="Buscar..."
-                                className="w-full sm:w-40 lg:w-56 py-2 pl-10 pr-3 font-semibold text-black placeholder-gray-500 rounded-lg border-none ring-2 ring-gray-300"
-                            />
-                        </div>
+
                         {!user ? (
                             <>
                                 <Link
