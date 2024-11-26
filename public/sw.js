@@ -5,8 +5,8 @@ self.addEventListener('install', event => {
             return cache.addAll([
                 '/',                        
                 '/index.html',              
-                '/images/IMG_9485.jpeg',    
-                '/images/IMG_9495.jpeg'
+                '/images/image.png',    
+                '/images/img2.ico'
             ]);
         })
     );
@@ -36,7 +36,7 @@ self.addEventListener('fetch', event => {
                         if (cachedResponse) {
                             return cachedResponse;
                         } else {
-                            return caches.match('/images/IMG_9485.jpeg');
+                            return caches.match('/images/image.png');
                         }
                     });
                 } else {
@@ -50,7 +50,7 @@ self.addEventListener('fetch', event => {
                     if (cachedResponse) {
                         return cachedResponse;
                     } else {
-                        return caches.match('/images/IMG_9485.jpeg');
+                        return caches.match('/images/img2.ico');
                     }
                 });
             });
