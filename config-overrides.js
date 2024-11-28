@@ -1,5 +1,10 @@
 module.exports = function override(config, env) {
-    // Personaliza la configuración de Webpack aquí
+    if (config.devServer) {
+      config.devServer.setupMiddlewares = (middlewares, devServer) => {
+        console.log('Middleware personalizado configurado');
+        return middlewares;
+      };
+    }
     return config;
   };
   
